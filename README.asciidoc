@@ -1,0 +1,4 @@
+gpsd-test
+=========
+
+A simple application that can show gpsd status.
