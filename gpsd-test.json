@@ -216,7 +216,8 @@
 	  "halign": "fill",
           "widget": {
 	     "type": "label",
-	     "text": "Connecting.........",
+	     "text": "Not connected",
+	     "shrink": 1,
 	     "uid": "server_status"
 	  }
 	},

@@ -295,7 +295,7 @@ int main(int argc, char *argv[])
 {
 	void *uids;
 
-	gp_widget *layout = gp_widget_layout_json("gpsd-test.json", &uids);
+	gp_widget *layout = gp_app_layout_load(argv[0], &uids);
 	if (!layout)
 		return 0;
 
