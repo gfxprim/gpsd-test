@@ -196,12 +196,12 @@
 	         "text": "Port:"
 	       },
                {
-                 "type": "textbox",
+                 "type": "tbox",
 	         "text": "localhost",
 		 "uid": "server_host"
 	       },
 	       {
-	         "type": "textbox",
+	         "type": "tbox",
 	         "text": "2947",
 		 "uid": "server_port",
 	         "halign": "fill"

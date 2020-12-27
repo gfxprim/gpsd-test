@@ -234,8 +234,8 @@ static const char *gps_netlib_err(int err)
 
 static void init_gps(void)
 {
-	const char *host = gp_widget_textbox_str(server_host);
-	const char *port = gp_widget_textbox_str(server_port);
+	const char *host = gp_widget_tbox_str(server_host);
+	const char *port = gp_widget_tbox_str(server_port);
 
 	if (gpsdata.gps_fd)
 		return;
@@ -323,8 +323,8 @@ int main(int argc, char *argv[])
 	gps_ept = gp_widget_by_uid(uids, "ept", GP_WIDGET_MARKUP);
 	gps_epc = gp_widget_by_uid(uids, "epc", GP_WIDGET_MARKUP);
 
-	server_host = gp_widget_by_uid(uids, "server_host", GP_WIDGET_TEXTBOX);
-	server_port = gp_widget_by_uid(uids, "server_port", GP_WIDGET_TEXTBOX);
+	server_host = gp_widget_by_uid(uids, "server_host", GP_WIDGET_TBOX);
+	server_port = gp_widget_by_uid(uids, "server_port", GP_WIDGET_TBOX);
 	server_status = gp_widget_by_uid(uids, "server_status", GP_WIDGET_LABEL);
 
 	gp_widgets_main_loop(layout, "gpsd-test", init_gps, argc, argv);
