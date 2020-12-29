@@ -257,7 +257,7 @@ static void init_gps(void)
 
 int connect_btn(gp_widget_event *ev)
 {
-	if (ev->type != GP_WIDGET_EVENT_ACTION)
+	if (ev->type != GP_WIDGET_EVENT_WIDGET)
 		return 0;
 
 	gp_widget_label_set(server_status, "Connecting...");
@@ -283,7 +283,7 @@ static void exit_gps(void)
 
 int disconnect_btn(gp_widget_event *ev)
 {
-	if (ev->type != GP_WIDGET_EVENT_ACTION)
+	if (ev->type != GP_WIDGET_EVENT_WIDGET)
 		return 0;
 
 	exit_gps();
