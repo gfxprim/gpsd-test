@@ -79,6 +79,8 @@ int sats_set_row(gp_widget *self, int op, unsigned int pos)
 	case GP_TABLE_ROW_ADVANCE:
 		self->tbl->row_idx += pos;
 	break;
+	case GP_TABLE_ROW_TELL:
+		return gpsdata.satellites_visible;
 	}
 
 	if (self->tbl->row_idx < (unsigned long)gpsdata.satellites_visible)
