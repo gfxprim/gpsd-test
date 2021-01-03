@@ -34,19 +34,19 @@
              "type": "label",
              "text": "Lat:",
 	     "halign": "right",
-             "bold": "true"
+             "tattr": "bold"
           },
           {
              "type": "label",
              "text": "Lon:",
 	     "halign": "right",
-             "bold": "true"
+             "tattr": "bold"
           },
           {
              "type": "label",
              "text": "Alt:",
 	     "halign": "right",
-             "bold": "true"
+             "tattr": "bold"
           },
           {
              "type": "label",
@@ -98,19 +98,19 @@
              "type": "label",
              "text": "Speed:",
              "halign": "right",
-             "bold": "true"
+             "tattr": "bold"
           },
           {
              "type": "label",
              "text": "Track:",
              "halign": "right",
-             "bold": "true"
+             "tattr": "bold"
           },
           {
              "type": "label",
              "text": "Climb:",
              "halign": "right",
-             "bold": "true"
+             "tattr": "bold"
           },
           {
              "type": "markup",
