@@ -157,13 +157,16 @@
       "align": "fill",
       "header": [
 	      {
-		"label": "SRN"
+		"label": "SRN",
+		"min_size": 5
 	      },
 	      {
-	        "label": "Position"
+	        "label": "Position",
+		"min_size": 6
 	      },
 	      {
 	        "label": "Signal",
+		"min_size": 4,
 		"sortable": "true"
 	      }
       ],

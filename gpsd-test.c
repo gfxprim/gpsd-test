@@ -302,11 +302,6 @@ int main(int argc, char *argv[])
 		return 0;
 
 	table = gp_widget_by_uid(uids, "sat_table", GP_WIDGET_TABLE);
-	if (table) {
-		table->tbl->col_min_sizes[0] = 5;
-		table->tbl->col_min_sizes[1] = 6;
-		table->tbl->col_min_sizes[2] = 4;
-	}
 
 	gps_time = gp_widget_by_uid(uids, "time", GP_WIDGET_LABEL);
 	gps_lat = gp_widget_by_uid(uids, "lat", GP_WIDGET_LABEL);
