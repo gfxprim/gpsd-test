@@ -46,9 +46,12 @@ static const char *prn_to_str(int prn)
 	}
 }
 
-const char *sats_get_elem(gp_widget *self, unsigned int col)
+gp_widget_table_cell *sats_get_elem(gp_widget *self, unsigned int col)
 {
 	static char buf[100];
+	static gp_widget_table_cell cell = {
+		.text = buf,
+	};
 	struct satellite_t *sat = &gpsdata.skyview[self->tbl->row_idx];
 
 	switch (col) {
@@ -67,7 +70,7 @@ const char *sats_get_elem(gp_widget *self, unsigned int col)
 	break;
 	}
 
-	return buf;
+	return &cell;
 }
 
 int sats_set_row(gp_widget *self, int op, unsigned int pos)
