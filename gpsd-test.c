@@ -239,8 +239,8 @@ static const char *gps_netlib_err(int err)
 
 static void init_gps(void)
 {
-	const char *host = gp_widget_tbox_str(server_host);
-	const char *port = gp_widget_tbox_str(server_port);
+	const char *host = gp_widget_tbox_text(server_host);
+	const char *port = gp_widget_tbox_text(server_port);
 
 	if (gpsdata.gps_fd)
 		return;

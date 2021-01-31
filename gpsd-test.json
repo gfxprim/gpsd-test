@@ -177,7 +177,7 @@
     },
     {
       "rows": 3,
-      "valign": "fill",
+      "align": "fill",
       "rpad": "2, 2, 1, 2",
       "rpadf": "0, 0, 1, 0",
       "rfill": "0, 0, 0",
