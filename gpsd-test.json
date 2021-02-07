@@ -14,7 +14,6 @@
       "type": "frame",
       "label": "UTC Time",
       "align": "fill",
-      "bold": "true",
       "widget": {
          "type": "label",
          "text": "0000-00-00T00:00:00.000Z",
@@ -25,7 +24,6 @@
       "type": "frame",
       "label": "Position",
       "align": "fill",
-      "bold": "true",
       "widget": {
         "cols": 3,
         "rows": 3,
@@ -88,7 +86,6 @@
     {
       "type": "frame",
       "label": "Speed",
-      "bold": "true",
       "align": "fill",
       "widget": {
         "cols": 3,
@@ -185,7 +182,6 @@
         {
           "type": "frame",
           "label": "GPSD Server",
-          "bold": "true",
 	  "halign": "fill",
           "widget": {
 	     "rows": 2,
@@ -216,7 +212,6 @@
 	{
           "type": "frame",
           "label": "Server status",
-          "bold": "true",
 	  "halign": "fill",
           "widget": {
 	     "type": "label",
