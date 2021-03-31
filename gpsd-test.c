@@ -298,7 +298,7 @@ int disconnect_btn(gp_widget_event *ev)
 
 int main(int argc, char *argv[])
 {
-	void *uids;
+	gp_htable *uids;
 
 	gp_widget *layout = gp_app_layout_load(argv[0], &uids);
 	if (!layout)
