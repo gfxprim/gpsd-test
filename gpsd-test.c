@@ -46,31 +46,53 @@ static const char *prn_to_str(int prn)
 	}
 }
 
-gp_widget_table_cell *sats_get_elem(gp_widget *self, unsigned int col)
+enum sats_elem {
+	SATS_PRN,
+	SATS_POS,
+	SATS_SIG,
+};
+
+static int sats_get_elem(gp_widget *self, gp_widget_table_cell *cell, unsigned int col)
 {
 	static char buf[100];
-	static gp_widget_table_cell cell = {
-		.text = buf,
-	};
 	struct satellite_t *sat = &gpsdata.skyview[self->tbl->row_idx];
 
+	(void) self;
+
 	switch (col) {
-	case 0:
+	case SATS_PRN:
 		snprintf(buf, sizeof(buf), "%s %i", prn_to_str(sat->PRN), sat->PRN);
 	break;
-	case 1:
+	case SATS_POS:
 #if GPSD_API_MAJOR_VERSION >= 10
 		snprintf(buf, sizeof(buf), "%.0f %.0f", sat->elevation, sat->azimuth);
 #else
 		snprintf(buf, sizeof(buf), "%i %i", sat->elevation, sat->azimuth);
 #endif
 	break;
-	case 2:
+	case SATS_SIG:
 		snprintf(buf, sizeof(buf), "%.1f", sat->ss);
 	break;
 	}
 
-	return &cell;
+	cell->text = buf;
+
+	return 1;
+}
+
+int sats_get_srn(gp_widget *self, gp_widget_table_cell *cell)
+{
+	return sats_get_elem(self, cell, SATS_PRN);
+}
+
+int sats_get_pos(gp_widget *self, gp_widget_table_cell *cell)
+{
+	return sats_get_elem(self, cell, SATS_POS);
+}
+
+int sats_get_sig(gp_widget *self, gp_widget_table_cell *cell)
+{
+	return sats_get_elem(self, cell, SATS_SIG);
 }
 
 int sats_set_row(gp_widget *self, int op, unsigned int pos)

@@ -155,23 +155,24 @@
       "header": [
 	      {
 		"label": "SRN",
-		"min_size": 5
+		"min_size": 5,
+		"get": "sats_get_srn"
 	      },
 	      {
 	        "label": "Position",
-		"min_size": 6
+		"min_size": 6,
+		"get": "sats_get_pos"
 	      },
 	      {
 	        "label": "Signal",
 		"min_size": 4,
-		"sortable": true
+		"order": "desc",
+		"get": "sats_get_sig",
+		"sort": "sats_sort"
 	      }
       ],
       "min_rows": 10,
-      "get_elem": "sats_get_elem",
-      "set_row": "sats_set_row",
-      "sort": "sats_sort",
-      "sort_by": {"col": 2, "order": "desc"}
+      "set_row": "sats_set_row"
     },
     {
       "rows": 3,
