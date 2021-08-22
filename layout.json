@@ -170,7 +170,8 @@
       "min_rows": 10,
       "get_elem": "sats_get_elem",
       "set_row": "sats_set_row",
-      "sort": "sats_sort"
+      "sort": "sats_sort",
+      "sort_by": {"col": 2, "order": "desc"}
     },
     {
       "rows": 3,
