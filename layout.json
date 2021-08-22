@@ -164,7 +164,7 @@
 	      {
 	        "label": "Signal",
 		"min_size": 4,
-		"sortable": "true"
+		"sortable": true
 	      }
       ],
       "min_rows": 10,
@@ -216,7 +216,7 @@
           "widget": {
 	     "type": "label",
 	     "text": "Not connected",
-	     "shrink": 1,
+	     "shrink": true,
 	     "uid": "server_status"
 	  }
 	},
