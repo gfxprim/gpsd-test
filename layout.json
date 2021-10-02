@@ -152,27 +152,13 @@
       "type": "table",
       "uid": "sat_table",
       "align": "fill",
-      "header": [
-	      {
-		"label": "SRN",
-		"min_size": 5,
-		"get": "sats_get_srn"
-	      },
-	      {
-	        "label": "Position",
-		"min_size": 6,
-		"get": "sats_get_pos"
-	      },
-	      {
-	        "label": "Signal",
-		"min_size": 4,
-		"order": "desc",
-		"get": "sats_get_sig",
-		"sort": "sats_sort"
-	      }
-      ],
       "min_rows": 10,
-      "set_row": "sats_set_row"
+      "col_ops": "sats_col_ops",
+      "header": [
+	      {"label": "SRN", "min_size": 5, "id": "prn"},
+	      {"label": "Position", "min_size": 6, "id": "pos"},
+	      {"label": "Signal", "min_size": 4, "order": "desc", "id": "sig", "sortable": true}
+      ]
     },
     {
       "rows": 3,

@@ -80,22 +80,7 @@ static int sats_get_elem(gp_widget *self, gp_widget_table_cell *cell, unsigned i
 	return 1;
 }
 
-int sats_get_srn(gp_widget *self, gp_widget_table_cell *cell)
-{
-	return sats_get_elem(self, cell, SATS_PRN);
-}
-
-int sats_get_pos(gp_widget *self, gp_widget_table_cell *cell)
-{
-	return sats_get_elem(self, cell, SATS_POS);
-}
-
-int sats_get_sig(gp_widget *self, gp_widget_table_cell *cell)
-{
-	return sats_get_elem(self, cell, SATS_SIG);
-}
-
-int sats_set_row(gp_widget *self, int op, unsigned int pos)
+static int sats_seek_row(gp_widget *self, int op, unsigned int pos)
 {
 	switch (op) {
 	case GP_TABLE_ROW_RESET:
@@ -104,7 +89,7 @@ int sats_set_row(gp_widget *self, int op, unsigned int pos)
 	case GP_TABLE_ROW_ADVANCE:
 		self->tbl->row_idx += pos;
 	break;
-	case GP_TABLE_ROW_TELL:
+	case GP_TABLE_ROW_MAX:
 		return gpsdata.satellites_visible;
 	}
 
@@ -117,13 +102,13 @@ int sats_set_row(gp_widget *self, int op, unsigned int pos)
 static int sat_sort_col = -1;
 static int sat_sort_desc = 1;
 
-void sats_sort(gp_widget *self, unsigned int col, int desc)
+static void sats_sort(gp_widget *self, int desc, unsigned int col)
 {
 	sat_sort_col = col;
 	sat_sort_desc = desc;
 }
 
-int sat_cmp_signal_desc(const void *sat1, const void *sat2)
+static int sat_cmp_signal_desc(const void *sat1, const void *sat2)
 {
 	return ((struct satellite_t*)sat1)->ss < ((struct satellite_t*)sat2)->ss;
 }
@@ -151,6 +136,18 @@ static void do_sort(void)
 
 	qsort(gpsdata.skyview, gpsdata.satellites_visible, sizeof(struct satellite_t), cmp);
 }
+
+const gp_widget_table_col_ops sats_col_ops = {
+	.seek_row = sats_seek_row,
+	.get_cell = sats_get_elem,
+	.sort = sats_sort,
+	.col_map = {
+		{.id = "prn", .idx = SATS_PRN},
+		{.id = "pos", .idx = SATS_POS},
+		{.id = "sig", .idx = SATS_SIG, .sortable=1},
+		{}
+	}
+};
 
 static int event_gps(struct gp_fd *self, struct pollfd *pfd)
 {
