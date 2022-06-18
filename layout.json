@@ -1,5 +1,6 @@
 {
-  "version": 1,
+ "info": {"version": 1, "license": "GPL-2.1-or-later", "author": "Cyril Hrubis <metan@ucw.cz>"},
+ "layout": {
   "type": "tabs",
   "labels": [
    "Status",
@@ -230,4 +231,5 @@
       ]
     }
   ]
+ }
 }
