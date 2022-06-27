@@ -65,19 +65,19 @@
           },
           {
              "type": "markup",
-             "text": "+- {??.???} m",
+             "text": "\u00b1 {??.???} m",
              "uid": "epy",
 	     "halign": "left"
           },
           {
              "type": "markup",
-             "text": "+- {??.???} m",
+             "text": "\u00b1 {??.???} m",
              "uid": "epx",
 	     "halign": "left"
           },
           {
              "type": "markup",
-             "text": "+- {??.???} m",
+             "text": "\u00b1 {??.???} m",
              "uid": "epv",
 	     "halign": "left"
           }
@@ -128,19 +128,19 @@
           },
           {
              "type": "markup",
-             "text": "+- {??.???} m/s",
+             "text": "\u00b1 {??.???} m/s",
              "uid": "eps",
 	     "halign": "left"
           },
           {
              "type": "markup",
-             "text": "+- {??.???}\"",
+             "text": "\u00b1 {??.???}\"",
              "uid": "ept",
 	     "halign": "left"
           },
           {
              "type": "markup",
-             "text": "+- {??.???} m/s",
+             "text": "\u00b1 {??.???} m/s",
 	     "uid": "epc",
 	     "halign": "left"
           }
