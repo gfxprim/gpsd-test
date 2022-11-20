@@ -315,9 +315,24 @@ int disconnect_btn(gp_widget_event *ev)
 	return 1;
 }
 
+static gp_app_info app_info = {
+	.name = "gpsd-test",
+	.desc = "A simple app to show GPS coordinates",
+	.version = "1.0",
+	.license = "GPL-2.0-or-later",
+	.url = "http://github.com/gfxprim/gpsd-test",
+	.authors = (gp_app_info_author []) {
+		{.name = "Cyril Hrubis", .email = "metan@ucw.cz", .years = "2007-2022"},
+		{}
+	}
+};
+
+
 int main(int argc, char *argv[])
 {
 	gp_htable *uids;
+
+	gp_app_info_set(&app_info);
 
 	gp_widget *layout = gp_app_layout_load(argv[0], &uids);
 	if (!layout)
