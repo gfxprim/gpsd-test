@@ -59,25 +59,29 @@
              "uid": "lon"
           },
           {
-             "type": "markup",
-             "text": "{????.???} m",
+             "type": "label",
+             "fmt": "{????.???} m",
+	     "text": "no data",
              "uid": "alt"
           },
           {
-             "type": "markup",
-             "text": "\u00b1 {??.???} m",
+             "type": "label",
+             "fmt": "\u00b1 {??.???} m",
+	     "text": "no data",
              "uid": "epy",
 	     "halign": "left"
           },
           {
-             "type": "markup",
-             "text": "\u00b1 {??.???} m",
+             "type": "label",
+             "fmt": "\u00b1 {??.???} m",
+	     "text": "no data",
              "uid": "epx",
 	     "halign": "left"
           },
           {
-             "type": "markup",
-             "text": "\u00b1 {??.???} m",
+             "type": "label",
+             "fmt": "\u00b1 {??.???} m",
+	     "text": "no data",
              "uid": "epv",
 	     "halign": "left"
           }
@@ -112,35 +116,38 @@
              "tattr": "bold"
           },
           {
-             "type": "markup",
-             "text": "{???.??} m/s",
+             "type": "label",
+             "fmt": "{???.??} m/s",
+	     "text": "no data",
              "uid": "speed"
           },
           {
-             "type": "markup",
-             "text": "{??.??}\"",
+             "type": "label",
+             "fmt": "{??.??}\"",
+	     "text": "no data",
              "uid": "track"
           },
           {
-             "type": "markup",
-             "text": "{???.??} m/s",
+             "type": "label",
+             "fmt": "{???.??} m/s",
+	     "text": "no data",
              "uid": "climb"
           },
           {
-             "type": "markup",
-             "text": "\u00b1 {??.???} m/s",
+             "type": "label",
+             "fmt": "\u00b1 {??.???} m/s",
              "uid": "eps",
 	     "halign": "left"
           },
           {
-             "type": "markup",
-             "text": "\u00b1 {??.???}\"",
+             "type": "label",
+             "fmt": "\u00b1 {??.???}\"",
              "uid": "ept",
 	     "halign": "left"
           },
           {
-             "type": "markup",
-             "text": "\u00b1 {??.???} m/s",
+             "type": "label",
+             "fmt": "\u00b1 {??.???} m/s",
 	     "uid": "epc",
 	     "halign": "left"
           }

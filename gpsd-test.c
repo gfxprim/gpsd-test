@@ -194,7 +194,7 @@ static int event_gps(struct gp_fd *self, struct pollfd *pfd)
 		}
 
 		if (gps_epy)
-			gp_widget_markup_set_var(gps_epy, 0, "%.3f", gpsdata.fix.epy);
+			gp_widget_label_fmt_var_set(gps_epy, "%.3f", gpsdata.fix.epy);
 
 		if (gps_lon && !isnan(gpsdata.fix.latitude)) {
 			gp_widget_label_printf(gps_lon, "%.5f %c", fabs(gpsdata.fix.longitude),
@@ -202,34 +202,34 @@ static int event_gps(struct gp_fd *self, struct pollfd *pfd)
 		}
 
 		if (gps_epx)
-			gp_widget_markup_set_var(gps_epx, 0, "%.3f", gpsdata.fix.epx);
+			gp_widget_label_fmt_var_set(gps_epx, "%.3f", gpsdata.fix.epx);
 
 		if (gps_speed)
-			gp_widget_markup_set_var(gps_speed, 0, "%.2f", gpsdata.fix.speed);
+			gp_widget_label_fmt_var_set(gps_speed, "%.2f", gpsdata.fix.speed);
 
 		if (gps_eps)
-			gp_widget_markup_set_var(gps_eps, 0, "%.3f", gpsdata.fix.eps);
+			gp_widget_label_fmt_var_set(gps_eps, "%.3f", gpsdata.fix.eps);
 
 		if (gps_track)
-			gp_widget_markup_set_var(gps_track, 0, "%.2f", gpsdata.fix.track);
+			gp_widget_label_fmt_var_set(gps_track, "%.2f", gpsdata.fix.track);
 
 		if (gps_ept)
-			gp_widget_markup_set_var(gps_ept, 0, "%.3f", gpsdata.fix.ept);
+			gp_widget_label_fmt_var_set(gps_ept, "%.3f", gpsdata.fix.ept);
 
 	}
 
 	if (gpsdata.fix.mode >= MODE_3D) {
 		if (gps_alt && !isnan(gpsdata.fix.altitude))
-			gp_widget_markup_set_var(gps_alt, 0, "%.3f", gpsdata.fix.altitude);
+			gp_widget_label_fmt_var_set(gps_alt, "%.3f", gpsdata.fix.altitude);
 
 		if (gps_epv)
-			gp_widget_markup_set_var(gps_epv, 0, "%.3f", gpsdata.fix.epv);
+			gp_widget_label_fmt_var_set(gps_epv, "%.3f", gpsdata.fix.epv);
 
 		if (gps_climb)
-			gp_widget_markup_set_var(gps_climb, 0, "%.2f", gpsdata.fix.climb);
+			gp_widget_label_fmt_var_set(gps_climb, "%.2f", gpsdata.fix.climb);
 
 		if (gps_epc)
-			gp_widget_markup_set_var(gps_epc, 0, "%.3f", gpsdata.fix.epc);
+			gp_widget_label_fmt_var_set(gps_epc, "%.3f", gpsdata.fix.epc);
 
 	}
 
@@ -343,19 +343,19 @@ int main(int argc, char *argv[])
 	gps_time = gp_widget_by_uid(uids, "time", GP_WIDGET_LABEL);
 	gps_lat = gp_widget_by_uid(uids, "lat", GP_WIDGET_LABEL);
 	gps_lon = gp_widget_by_uid(uids, "lon", GP_WIDGET_LABEL);
-	gps_alt = gp_widget_by_uid(uids, "alt", GP_WIDGET_MARKUP);
+	gps_alt = gp_widget_by_uid(uids, "alt", GP_WIDGET_LABEL);
 
-	gps_epy = gp_widget_by_uid(uids, "epy", GP_WIDGET_MARKUP);
-	gps_epx = gp_widget_by_uid(uids, "epx", GP_WIDGET_MARKUP);
-	gps_epv = gp_widget_by_uid(uids, "epv", GP_WIDGET_MARKUP);
+	gps_epy = gp_widget_by_uid(uids, "epy", GP_WIDGET_LABEL);
+	gps_epx = gp_widget_by_uid(uids, "epx", GP_WIDGET_LABEL);
+	gps_epv = gp_widget_by_uid(uids, "epv", GP_WIDGET_LABEL);
 
-	gps_speed = gp_widget_by_uid(uids, "speed", GP_WIDGET_MARKUP);
-	gps_track = gp_widget_by_uid(uids, "track", GP_WIDGET_MARKUP);
-	gps_climb = gp_widget_by_uid(uids, "climb", GP_WIDGET_MARKUP);
+	gps_speed = gp_widget_by_uid(uids, "speed", GP_WIDGET_LABEL);
+	gps_track = gp_widget_by_uid(uids, "track", GP_WIDGET_LABEL);
+	gps_climb = gp_widget_by_uid(uids, "climb", GP_WIDGET_LABEL);
 
-	gps_eps = gp_widget_by_uid(uids, "eps", GP_WIDGET_MARKUP);
-	gps_ept = gp_widget_by_uid(uids, "ept", GP_WIDGET_MARKUP);
-	gps_epc = gp_widget_by_uid(uids, "epc", GP_WIDGET_MARKUP);
+	gps_eps = gp_widget_by_uid(uids, "eps", GP_WIDGET_LABEL);
+	gps_ept = gp_widget_by_uid(uids, "ept", GP_WIDGET_LABEL);
+	gps_epc = gp_widget_by_uid(uids, "epc", GP_WIDGET_LABEL);
 
 	server_host = gp_widget_by_uid(uids, "server_host", GP_WIDGET_TBOX);
 	server_port = gp_widget_by_uid(uids, "server_port", GP_WIDGET_TBOX);
