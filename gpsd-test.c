@@ -149,10 +149,9 @@ const gp_widget_table_col_ops sats_col_ops = {
 	}
 };
 
-static int event_gps(struct gp_fd *self, struct pollfd *pfd)
+static int event_gps(gp_fd *self)
 {
 	(void)self;
-	(void)pfd;
 	int ret;
 
 	if (gpsdata.gps_fd == 0)
@@ -276,7 +275,7 @@ static void init_gps(void)
 
 	gps_stream(&gpsdata, WATCH_ENABLE, NULL);
 
-	gp_fds_add(gp_widgets_fds, gpsdata.gps_fd, POLLIN, event_gps, NULL);
+	gp_widget_fds_add(gpsdata.gps_fd, POLLIN, event_gps, NULL);
 }
 
 int connect_btn(gp_widget_event *ev)
