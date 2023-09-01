@@ -257,6 +257,7 @@ static const char *gps_netlib_err(int err)
 
 static void init_gps(void)
 {
+	static gp_fd gps_fd;
 	const char *host = gp_widget_tbox_text(server_host);
 	const char *port = gp_widget_tbox_text(server_port);
 
@@ -275,7 +276,13 @@ static void init_gps(void)
 
 	gps_stream(&gpsdata, WATCH_ENABLE, NULL);
 
-	gp_widget_fds_add(gpsdata.gps_fd, POLLIN, event_gps, NULL);
+	gps_fd = (gp_fd) {
+		.fd = gpsdata.gps_fd,
+		.events = GP_POLLIN,
+		.event = event_gps,
+	};
+
+	gp_widget_poll_add(&gps_fd);
 }
 
 int connect_btn(gp_widget_event *ev)
