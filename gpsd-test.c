@@ -321,7 +321,7 @@ int disconnect_btn(gp_widget_event *ev)
 	return 1;
 }
 
-static gp_app_info app_info = {
+gp_app_info app_info = {
 	.name = "gpsd-test",
 	.desc = "A simple app to show GPS coordinates",
 	.version = "1.0",
@@ -337,8 +337,6 @@ static gp_app_info app_info = {
 int main(int argc, char *argv[])
 {
 	gp_htable *uids;
-
-	gp_app_info_set(&app_info);
 
 	gp_widget *layout = gp_app_layout_load(argv[0], &uids);
 	if (!layout)
@@ -367,7 +365,7 @@ int main(int argc, char *argv[])
 	server_port = gp_widget_by_uid(uids, "server_port", GP_WIDGET_TBOX);
 	server_status = gp_widget_by_uid(uids, "server_status", GP_WIDGET_LABEL);
 
-	gp_widgets_main_loop(layout, "gpsd-test", init_gps, argc, argv);
+	gp_widgets_main_loop(layout, init_gps, argc, argv);
 
 	return 0;
 }
