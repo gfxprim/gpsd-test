@@ -55,7 +55,8 @@ enum sats_elem {
 static int sats_get_elem(gp_widget *self, gp_widget_table_cell *cell, unsigned int col)
 {
 	static char buf[100];
-	struct satellite_t *sat = &gpsdata.skyview[self->tbl->row_idx];
+	gp_widget_table_priv *tbl_priv = gp_widget_table_priv_get(self);
+	struct satellite_t *sat = &gpsdata.skyview[tbl_priv->row_idx];
 
 	(void) self;
 
@@ -82,18 +83,20 @@ static int sats_get_elem(gp_widget *self, gp_widget_table_cell *cell, unsigned i
 
 static int sats_seek_row(gp_widget *self, int op, unsigned int pos)
 {
+        gp_widget_table_priv *tbl_priv = gp_widget_table_priv_get(self);
+
 	switch (op) {
 	case GP_TABLE_ROW_RESET:
-		self->tbl->row_idx = 0;
+		tbl_priv->row_idx = 0;
 	break;
 	case GP_TABLE_ROW_ADVANCE:
-		self->tbl->row_idx += pos;
+		tbl_priv->row_idx += pos;
 	break;
 	case GP_TABLE_ROW_MAX:
 		return gpsdata.satellites_visible;
 	}
 
-	if (self->tbl->row_idx < (unsigned long)gpsdata.satellites_visible)
+	if (tbl_priv->row_idx < (unsigned long)gpsdata.satellites_visible)
 		return 1;
 
 	return 0;
@@ -149,7 +152,7 @@ const gp_widget_table_col_ops sats_col_ops = {
 	}
 };
 
-static int event_gps(gp_fd *self)
+static enum gp_poll_event_ret event_gps(gp_fd *self)
 {
 	(void)self;
 	int ret;
