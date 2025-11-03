@@ -258,7 +258,7 @@ static const char *gps_netlib_err(int err)
 	}
 }
 
-static void init_gps(void)
+static void init_gps(int argc, char *argv[])
 {
 	static gp_fd gps_fd;
 	const char *host = gp_widget_tbox_text(server_host);
@@ -285,7 +285,7 @@ static void init_gps(void)
 		.event = event_gps,
 	};
 
-	gp_widget_poll_add(&gps_fd);
+	gp_app_poll_add(&gps_fd);
 }
 
 int connect_btn(gp_widget_event *ev)
@@ -295,7 +295,7 @@ int connect_btn(gp_widget_event *ev)
 
 	gp_widget_label_set(server_status, "Connecting...");
 
-	init_gps();
+	init_gps(0, NULL);
 
 	return 1;
 }
